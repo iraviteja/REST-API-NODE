@@ -1,10 +1,16 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const config = require("./config");
 
 const app = express();
 
+//Middleware
+app.use(bodyParser.json());
+
 //Routes
 const productsRoutes = require("./routes/products.js");
-const orderssRoutes = require("./routes/orders.js");
+const ordersRoutes = require("./routes/orders.js");
 
 app.use("/products", productsRoutes);
 app.use("/orders", ordersRoutes);
